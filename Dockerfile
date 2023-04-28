@@ -17,4 +17,4 @@ RUN mkdir build && \
     cmake -S . -B ./build && \
     cmake --build ./build --config Debug
 
-ENTRYPOINT ["./build/main"]
+ENTRYPOINT ["./build/myApp"]
