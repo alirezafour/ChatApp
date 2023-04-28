@@ -8,13 +8,13 @@ RUN apt-get update -qq && \
 
 # create user
 RUN adduser --disabled-password alireza
-USER alireza
-WORKDIR /home/alireza
+USER myUser
+WORKDIR /home/myUser
 
 COPY . .
 
-RUN ls && mkdir build && \
+RUN mkdir build && \
     cmake -S . -B ./build && \
     cmake --build ./build --config Debug
 
-ENTRYPOINT ["./build/ChatApp"]
+ENTRYPOINT ["./build/main"]
