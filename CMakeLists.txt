@@ -21,8 +21,8 @@ file(GLOB SOURCES
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-option(ENABLE_TESTING "Enable the tests" ${PROJECT_IS_TOP_LEVEL})
-if(true)
+option(ENABLE_TESTING "Enable the tests" OFF)
+if(ENABLE_TESTING)
   enable_testing()
   add_subdirectory(test)
 endif()
