@@ -6,7 +6,9 @@ cmake_policy(SET CMP0048 NEW)
 #project setup
 project(myApp
         VERSION 0.0.1
-        LANGUAGES CXX
+        DESCRIPTION ""
+        HOMEPAGE_URL "%%myurl%%"
+        LANGUAGES CXX C
 )
 
 
@@ -14,6 +16,10 @@ project(myApp
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# cpm dependency
+include(cmake/CPM.cmake)
+
+# project file and executable
 file(GLOB SOURCES
      "src/*.h"
      "src/*.cpp"
@@ -21,6 +27,7 @@ file(GLOB SOURCES
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
+# enable tesing
 option(ENABLE_TESTING "Enable the tests" OFF)
 if(ENABLE_TESTING)
   enable_testing()
